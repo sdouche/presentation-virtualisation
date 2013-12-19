@@ -23,13 +23,14 @@ h3 { font-size: 1.6em; }
 .footnote {
   position: absolute;
   bottom: 3em;
+  right: 3em;
 }
 li p { line-height: 1.25em; }
 .red { color: #fa0000; }
 .blue { color: #1437AD; }
 .large { font-size: 2em; }
 a, a > code {
-  color: rgb(249, 38, 114);
+  color: rgb(24, 138, 114);
   text-decoration: none;
 }
 code {
@@ -116,4 +117,18 @@ code {
   width: 75%;
   float: right;
   padding-top: 2em;
+}
+
+.left-50column {
+  color: #1212fa;
+  width: 48%;
+  height: 92%;
+  float: left;
+}
+  
+.right-50column {
+  color: #fa1212;
+  width: 48%;
+  height: 92%;
+  float: right;
 }
