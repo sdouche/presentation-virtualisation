@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation" />
     <meta name="description" content="A simple, in-browser, markdown-driven slideshow tool." />
-    <title>Keynote Orange</title>
+    <title>Introduction à la virtualisation</title>
     <link rel="stylesheet" type="text/css" href="theme.css">
   </head>
   <body>
@@ -13,7 +13,7 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Virtualisation
+# Introduction à la virtualisation
 ## Sébastien Douche @sdouche
 .footnote[https://github.com/sdouche/presentation-virtualisation]
 ---
@@ -22,52 +22,50 @@ layout: false
   ## Qui suis je ?
 ]
 .right-column[
-39 ans. Français. Pas trés intelligent mais j'aime comprendre.
+39 ans. Pas trés intelligent mais j'aime comprendre.
 
-- Geek depuis 1984
+- .blue[Geek] depuis 1984
 
-- Fan de Logiciels Libres depuis 1995
+- Fan de .blue[Logiciels Libres] depuis 1995
 
-- Développeur (Python, Go, Dart, Rust)
+- .blue[CTO] chez un éditeur logiciel depuis 2007
 
-- Sysadmin (Linux / BSD)
+- .blue[Développeur] (Python, Go, Dart, Rust)
 
-- Responsable technique chez un éditeur logiciel français depuis 2007
+- .blue[Sysadmin] (Linux / BSD)
 
-- Speaker (Git, Python, Go, Dart, organisation, management...)
+- .blue[Speaker] (Git, Python, Go, organisation, management...)
 
-- Intéressé par le Lifehacking
+- Adore les .blue[jeux de sociétés modernes]
 
-- Adore les jeux de sociétés modernes
+- .blue[Motard] (Honda CBR RR)
 
-- Motard (Honda CBR RR)
-
-- Aime l'humour noir, le second degrés et les blagues pourries
+- Aime l'humour noir et les blagues pourries
 ]
 ---
 template: inverse
 # Objectif de cette soirée
 ---
 class: center, middle
-## Vous donnez un peu de culture .blue[admin]
+## Vous donnez un peu de .blue[culture admin] et montrez .blue[l'utilité] des outils de virtualisation pour le développemment
 ---
 class: center, middle
-## Je ne suis pas un spécialiste de la virtualisation, juste un grand utilisateur.
+## Je ne suis pas un spécialiste de la virtualisation, juste un grand utilisateur
 ---
 class: center, middle
-## je n'ai rien à vous vendre.
+## je n'ai rien à vous vendre
 ---
 template: inverse
 # Culture
 ---
 class: center, middle
-## 2 anectodes personnelles
+## 2 anectodes
 ---
 class: center, middle
 ![Default-aligned image](img/The_fifth_discipline_cover.jpg)
 ---
 class: center, middle
-## Shift mental
+## Déclic
 ---
 class: center, middle
 ## Pattern et anti-pattern
@@ -79,21 +77,15 @@ class: center, middle
 ## Multiplier les cultures donne une vision plus .blue[cohérente]
 ---
 class: center, middle
-## Lean, Agile, Devops sont avant tout une question de .blue[culture]
+## Lean, Agile, Devops sont .blue[avant tout] une question de culture
 ---
 class: center, middle
 ## Valeur &#10140; Principe &#10140; Pratique
 ---
 template: inverse
-# Histoire
----
-class: center, middle
-## Les premiers travaux proviennent du centre scientifique de Cambridge d'IBM pour le développement expérimental de CP/CMS (.blue[1967–1972]). Il permet de simuler un environnement mono-utilisateur (CMS) par dessus la gestion des VM (VM-CP). Les versions actuelles sont z/OS et z/VM.
----
-template: inverse
 # Intérets
 ---
-## La virtualisation offre plusieurs opportunités.
+## La virtualisation offre plusieurs opportunités
 
 Coté ops :
 
@@ -103,98 +95,158 @@ Coté ops :
 ----
 Coté dev :
 
-- Disposer de plusieurs envionnement de développement
+- Disposer de plusieurs envionnements de développement
 - Tester son code dans un environnent normalisé
 - Simuler la production
 
 ##.red[Éviter le «ça marche chez moi» !]
 ---
+class: center, middle
+## Et surtout, éliminer un goulet d'étranglement et ainsi réduire .blue[le temps de cycle] (cycle time)
+---
+template: inverse
+# Histoire
+---
+class: center, middle
+## Les premiers travaux proviennent du centre scientifique de Cambridge d'IBM pour le développement expérimental de CP/CMS (.blue[1967–1972]). Il permet de simuler un environnement mono-utilisateur (CMS) par dessus la gestion des VM (VM-CP). Les versions actuelles sont z/OS et z/VM.
+---
 template: inverse
 # Vocabulaire
 ---
-# Émulation
-
-## L'émulation est la capacité à .blue[simuler] un autre programme ou matériel.
-???
-Ex: émulateur de jeu, imprimante HP
----
-# Virtualisation
-
-## La virtualisation consiste à faire .blue[fonctionner] un OS ou applications comme un simple logiciel.
-## Ces ordinateurs virtuels sont appelés Virtual Private Server (VPS) ou Virtual Environment (VE).
+class: center, middle
+## Émulation / virtualisation
 ---
 class: center, middle
 ## Hôte (host) / invité (guest)
 ---
 class: center, middle
-## Machine virtuelle (Virtual Machine ou VM)
+## Bare-metal
 ---
 class: center, middle
-## Bare-metal
+## VM (Virtual Machine ou Machine virtuelle)
+---
+class: center, middle
+## VE (Virtual Environment ou Environnement)
 ---
 template: inverse
 # Techniques
 ---
-class: center, middle
+template: inverse
+## Hyperviseur de type 1
+---
+class: middle, center
+## Hyperviseur léger et optimisé pour gérer les accés aux matériels qui tourne en bare-metal
+---
+![Default-aligned image](img/ArchiHyperviseur.png)
+---
+## Hyperviseur de type 1
+
+.left-50column[
+Avantages :
+
+- OS complet (avec son noyau)
+- OS non modifié
+- isolation complète
+]
+
+.right-50column[
+Inconvénients :
+
+- lourdeur de mise en oeuvre
+- lourdeur de gestion
+- overhead moyen (peut être fortement réduit)
+]
+---
+template: inverse
+## Hyperviseur de type 2
+---
+class: middle, center
+## Hyperviseur qui fonctionne sur un OS et qui émule le matériel
+---
+![Default-aligned image](img/ArchiEmulateur.png)
+---
+## Hyperviseur type 2
+
+.left-50column[
+Avantages :
+
+- OS complet (avec son noyau)
+- OS non modifié
+- isolation complète
+]
+
+.right-50column[
+Inconvénients :
+
+- lourdeur de mise en oeuvre
+- lourdeur de gestion
+- overhead monstreux
+]
+---
+class: middle, center
+## Virtualisation (VM) vs Para-virtualisation (PV)
+
+## Que ce soit en hyperviseur de type 1 ou 2, on peut ajouter des drivers pour indiquer au noyau qu'il est un invité. On parle alors de .blue[para-virtualisation]. Cela diminue l'overhead et améliore les performances.
+---
+template: inverse
+## Accélération matérielle
+## (HVM, HPV)
+---
+## Virtualisation assisté par le processeur
+
+- Intel (2005+) :
+
+  - VT-x
+  - VT-d (I/O MMU virtualization)
+  - VT-c
+
+- AMD (2006+) :
+
+  - AMD-V
+  - AMD-Vi (I/O MMU virtualization)
+---
+template: inverse
 # conteneur
 ---
 class: center, middle
-## Permet d'.blue[isoler] l'exécution des applications dans des contexte d'éxécution.
----
-class: middle, center
-## Sous Linux. Namespace est un service fournit par le noyau pour gérer l'isolation.
----
-## Le PID namespace (Linux 2.6.24) gère l'isolation des ID de process :
-
-* PID 1 init-like par namespace
-* chaque namespace a propre numération PID (isolation du hôte)
-* le process d'un namespace ne peut envoyer de systemcall sur un autre process d'un autre PID namespace
-* gestion de pseudo-filesystem (ex : /proc) vu par le PID namespace qui le monte
-* un process possède 2 PID : un dans le namespace et un en dehors (process vu de l'hôte)
----
-## Le Net namespace (Linux 2.6.19-2.6.24) gère l'isolation du réseau. Chacun possèdant :
-
-* ses interfaces
-* ses ports
-* sa table de routage
-* ses règles de firewall (iptables)
-* son répertoire /proc/net
-* INADDR_ANY (0.0.0.0)
-
-### Note : Il est possible de créer des «pair interfaces» (visible de l'intérieur et de l'extérieur).
----
-## Le User namespace (Linux 2.6.23-3.8) gère l'isolation des utilisateurs et des groupes en :
-
-* séparant les droits selon les différents namespaces
-* rendant sûr le partage de namespace à des process sans privilège
----
-## Le IPC namespace (Linux 2.6.19-2.6.30) gère l'isolation des ressources IPC :
-
-- semaphores
-- message queues
-- shared memory segments
-
-### Note : Depuis Linux 2.6.30, il gère aussi les files de messages POSIX.
----
-## Le Mount namespace (Linux 2.4.19) gère l'isolation des points de montage du système de fichier vu par un groupe de process.
-
-* les points de montage ne sont plus globaux mais spécifique au namespace
-* les points de montage peuvent être propagés
-* racine propre (chroot)
----
-## Le UTS namespace (Linux 2.6.19) gère l'isolation des identifiants de nom et de domaine.
-
-### Note : UTS vient de la structure "utsname" passée à l'appel système uname(). UTS voulant dire "UNIX Time-sharing System".
+## Permet d'.blue[isoler] l'exécution des applications dans une VE
 ---
 class: center, middle
-## Sous Linux. Control Groups (cgroups) Service fournit par le noyau pour gérer la limitation de ressource.
+![Default-aligned image](img/ArchiIsolateur.png)
+---
+## Conteneur
 
-### On peut voir cela comnme un ulimit pour un groupe de process.
+.left-50column[
+Avantages :
+
+- simplicité
+- rapidité de mise en oeuvre
+- grande densité
+- peu d'overhead
+- cache commun (page sharing)
+- meilleur gestion des ressources (cpu. disque...)
+]
+
+.right-50column[
+Inconvénients :
+
+- un seul noyau
+- nécessite une couche sécurité (SELinux / Apparmor)
+]
 ---
-class: center, middle
-## Très pratique car permet de suivre finement des process (systemd l'utilise) et plus généralement pour limiter vos process. 
+## Isolation
+
+Sous Linux, c'est le service noyau *Namespace* qui gère l'isolation :
+
+* PID namespace : isolation des ID de process
+* Net namespace : isolation du réseau
+* IPC namespace : isolation des ressources IPC
+* UTS namespace : isolation des identifiants de nom et de domaine
+* Mount namespace : isolation des points de montage du système
 ---
-## Un cgroup créé des pseudo-fichiers pour manipuler le groupe.
+## Limitation des ressources
+
+Sous Linux, c'est le service noyau *Control Groups* (cgroups) aui gère la limitation :
 
 ```bash
 # root@srv1:/sys/fs/cgroup# ls -1
@@ -208,103 +260,149 @@ hugetlb
 memory
 perf_event
 ```
-
-Un process se place dans le groupe de son parent. 
 ---
-class: center, middle
-![Default-aligned image](img/ArchiIsolateur.png)
----
-layout: false
-.left-50column[
-## Avantages :
+## Processus sans privilège
 
-- rapidité de mise en oeuvre
-- peu d'overhead
-- grande densité
-- simplicité
-- cache commun (page sharing)
-- partage des ressources (cpu. disque...)
-]
-.right-50column[
-## Inconvénients :
-
-- un seul noyau (donc un seul OS)
-- nécessite une couche sécurité (SELinux / Apparmor)
-]
-???
-8 cores / 16 GB of RAM / 700 GB 8 containers
-4 cores / 1 TB of RAM / 50 TB 1000 containers
-
----
-template: inverse
-# Hyperviseur de type 1
----
-class: middle, center
-## Hyperviseur léger et optimisé pour gérer les accés aux matériels qui tourne en bare-metal.
----
-![Default-aligned image](img/ArchiHyperviseur.png)
----
-layout: false
-.left-50column[
-## Avantages :
-
-- isolation complète
-- plusieurs noyaux
-- overhead moyen
-]
-.right-50column[
-## Inconvénients :
-
-- lourdeur de mise en oeuvre
-- lourdeur de gestion
-]
----
-template: inverse
-# Hyperviseur de type 2
----
-class: middle, center
-## Hyperviseur qui fonctionne sur un OS et qui émule le matériel.
----
-![Default-aligned image](img/ArchiEmulateur.png)
----
-layout: false
-.left-50column[
-## Avantages :
-
-- isolation complète
-- plusieurs noyaux
-- assez simple
-]
-.right-50column[
-## Inconvénients :
-
-- overhead monstreux !
-]
----
-class: middle, center
-## Virtualisation vs Para-virtualisation (PV)
-
-## Que ce soit en hyperviseur de type 1 ou 2, on peut ajouter des drivers pour indiquer au noyau qu'il est un invité. On parle alors de .blue[para-virtualisation]. Cela diminue l'overhead et améliore les performances.
----
-template: inverse
-# Accélération matérielle
-## (HVM, HPV)
----
-## Virtualisation est intégré (ou assisté) au processeur.
-
-- Intel :
-
-  - VT-x
-  - VT-d (I/O MMU virtualization)
-  - VT-c
-
-- AMD :
-
-  - AMD-V
-  - AMD-Vi (I/O MMU virtualization)
+Sous Linux, c'est le service noyau *capabilities* qui gère les droits.
 ---
 template: inverse
 # Technologies
+---
+layout: false
+## QEMU
+
+Type : émulateur
+
+http://wiki.qemu.org
+
+.left-50column[
+Avantages :
+
+- Licence Libre
+- mature (2003)
+- project actif
+- Utilisé par VirtualBox, Xen et KVM
+- Émule les architectures IA-32 (x86) / x86-64, MIPS R4000, Sun SPARC sun4m / sun4u, ARM development boards, SH4 SHIX board, PowerPC, ETRAX CRIS, MicroBlaze...
+- KQEMU pour les vieux matériels
+]
+
+.right-50column[
+Inconvénients :
+
+- trés lent !
+]
+---
+layout: false
+## Xen
+
+Type : hyperviseur de type 1
+
+http://www.xenproject.org
+
+.left-50column[
+Avantages :
+
+- Licence Libre
+- mature (2003)
+- projet actif géré par la Xen Project Governance
+- projet upstream depuis Linux 3.0
+- hyperviseur x86, x86_64, Itanium, ARM
+- PV / HVM / Pv-on-HVM
+- distribution AlpineLinux
+- XenServer libéré
+- écosystême riches (2k partenaires certifiés)
+- nombreuses fonctionnalités(Live Migration, Save & Restore, sécurité...)
+]
+
+.right-50column[
+Inconvénients :
+
+- pas dans toutes les distributions  Linux / *BSD
+- bien adapté a Red Hat
+]
+---
+layout: false
+## KVM
+
+Type : hyperviseur de type 1
+
+http://www.linux-kvm.org/
+
+.left-50column[
+Avantages :
+
+- Licence Libre
+- mature (2007)
+- hyperviseur x86, x86_64, ARM (en dev)
+- projet actif financé par Red Hat
+- projet upstream depuis Linux 2.6.20
+- ré-intégré dans QEMU
+- maintenu par les distributions Linux / *BSD
+- HVM / Pv-on-HVM
+- utilisé par Red Hat comme offre de virtualisation
+]
+
+.right-50column[
+Inconvénients :
+
+- pas de ml utilisateur
+- manque de documentation
+- écosytème financé par Red Hat
+- demande un admin Linux plus confirmé
+- pas de PV
+]
+---
+layout: false
+## VMware vSphere Hypervisor (ESXi)
+
+Type : hyperviseur de type 1
+
+http://vmware.com
+
+.left-50column[
+Avantages :
+
+- gratuit
+- mature (2007)
+- projet actif financé par VMware
+- offre la plus complète (vCenter, NSX...)
+]
+
+.right-50column[
+Inconvénients :
+
+- licence propriétaire
+- écosysteme propriétaire
+- outillage sous Windows
+- offre complète très cher
+]
+---
+layout: false
+## Oracle VM VirtualBox
+
+Type : hyperviseur de type 2
+
+http://virtualbox.org
+
+.left-50column[
+Avantages :
+
+- Licence Libre
+- mature (2007)
+- projet actif financé par Oracle
+- IHM / CLI
+- Linux, Windows, Mac OS X, Solaris
+- packages pour toutes les distributions
+- simple d'utilisation
+- Documentation (manuel utilisateur 455 pages, FAQ, ml...)
+]
+
+.right-50column[
+Inconvénients :
+
+- instabilité occasionnelle
+- performance (http://bit.ly/1h9odf3)
+]
 ---
 layout: false
 ## chroot / FreeBSD Jail
@@ -319,6 +417,7 @@ Avantages :
 - Licence Libre
 - facilité de mise en oeuvre
 ]
+
 .right-50column[
 Inconvénients :
 
@@ -337,15 +436,16 @@ http://linux-vserver.org
 Avantages :
 
 - Licence Libre
-- maturité (10/2001)
+- maturité (2001)
 - fonctionne à partir du noyau 2.4
 - sécurité ?
 ]
+
 .right-50column[
 Inconvénients :
 
+- demande un noyau Linux patché
 - se synchronise avec les noyaux RHEL
-- pas de support des distributions Linux
 - QOS basic (ulimit, rlimit...)
 - plus trop utilisé
 ]
@@ -362,16 +462,15 @@ Avantages :
 
 - Licence Libre
 - mature (2005)
-- Projet très actif (sponsorié par Parallels)
+- Projet très actif (sponsorisé par Parallels)
 - beaucoup de fonctionnalité
 - documenté (quick start de 119 pages)
 - QOS / quota
 - isolation user, process, FS, réseau, device
-- isolation forte
-- snapshot (outil Ploop)
-- dump / restore (CRtools)
+- fonctionnalités (snapshot, dump / restore, etc)
 - sécurisé
 ]
+
 .right-50column[
 Inconvénients :
 
@@ -392,163 +491,33 @@ Avantages :
 
 - Licence Libre
 - intégré upstream
-- utilise des technos standards 
-- bindings python3, lua and Go
+- utilise des technos standards
+- bindings python3, ruby, lua and Go
 ]
+
 .right-50column[
 Inconvénients :
 
-- manque de maturité (LXC 1.0 le 02/2014)
-- manque de documentation
 - manque d'outillage
-]
----
-layout: false
-## QEMU
-
-Type : hyperviseur de type 1 / émulateur
-
-http://wiki.qemu.org
-
-.left-50column[
-Avantages :
-
-- Licence Libre
-- mature (2003)
-- project actif
-- Utilisé par VirtualBox, Xen et KVM
-- Émule les architectures IA-32 (x86) / x86-64, MIPS R4000, Sun SPARC sun4m / sun4u, ARM development boards, SH4 SHIX board, PowerPC, ETRAX CRIS, MicroBlaze...
-- KQEMU pour les vieux matériels
-]
-.right-50column[
-Inconvénients :
-
-- trés lent !
-]
----
-layout: false
-## Xen Project
-
-Type : hyperviseur de niveau 1
-
-http://www.xenproject.org
-
-.left-50column[
-Avantages :
-
-- Licence Libre
-- mature (2003)
-- projet actif géré par la Xen Project Governance
-- projet upstream depuis Linux 3.0
-- hyperviseur x86, x86_64, Itanium, ARM 
-- PV / HVM / Pv-on-HVM
-- distribution AlpineLinux
-- XenServer libéré
-- écosystême riches (2k partenaires certifiés)
-- Live Migration, Save & Restore 
-- Sécurité (FLASK, PbGrub...)
-- Remus
-]
-.right-50column[
-Inconvénients :
-
-- pas dans toutes les distributions  Linux / *BSD
-- bien adapté a Red Hat
-- manque de souplesse ?
-]
----
-layout: false
-## KVM
-
-Type : hyperviseur de niveau 1
-
-http://www.linux-kvm.org/ 
-
-.left-50column[
-Avantages :
-
-- Licence Libre
-- mature (2007)
-- hyperviseur x86, x86_64, ARM (en dev)
-- projet actif financé par Red Hat.
-- projet upstream depuis Linux 2.6.20
-- maintenu par les distributions Linux / *BSD
-- HVM / Pv-on-HVM
-- utilisé par Red Hat comme offre de virtulisation
-- outils : libvirt, libguestfs, virt-manager, oVirt, virt-tools
-]
-.right-50column[
-Inconvénients :
-
-- pas de ml utilisateur
-- manque de documentation
-- écosytème centré sur Red Hat
-- demande un admin Linux confirmé
-]
----
-layout: false
-## VMware vSphere Hypervisor (ESXi)
-
-Type : hyperviseur de niveau 1
-
-http://vmware.com
-
-.left-50column[
-Avantages :
-
-- gratuit
-- mature (2007)
-- projet actif financé par VMware
-- offre la plus complète (vCenter, NSX...)
-- Guest Additions
-]
-.right-50column[
-Inconvénients :
-
-- licence propriétaire
-- écosysteme propriétaire
-- outillage sous Windows
-- offre complète très cher
-]
----
-layout: false
-## Oracle VM VirtualBox
-
-Type : hyperviseur de niveau 2
-
-http://virtualbox.org
-
-.left-50column[
-Avantages :
-
-- Licence Libre
-- mature (2007)
-- projet actif financé par Oracle
-- disponible sous Linux, Windows, Mac OS X, Solaris
-- packages pour toutes les distributions
-- IHM et / ou CLI
-- simple d'utilisation
-- Documentation (manuel utilisateur 455 pages, FAQ, ml...)
-- Guest Additions
-]
-.right-50column[
-Inconvénients :
-- instabilité occasionnelle
-- performance
+- nécessite Apparmor ou SELinux
 ]
 ---
 Autres :
 
-- bochs
+- Bochs
 - Solaris Zone
 - DOSEMU
-- VMware Player, Workstation, Station, Server
+- VMware Player
+- VMware Workstation
+- VMware Fusion
 - Oracle VM
 - Microsoft Hyper-V Server
-- Microsoft VirtualPC, Microsoft Virtual Server
+- Microsoft VirtualPC
+- Microsoft Virtual Server
 - Parallels Server Bare Metal
-- Parallels Desktop, Parallels Server
-- z/VM
+- Parallels Desktop
+- Parallels Parallels Server
+- IBM z/VM
 ---
 template: inverse
 # Formats
@@ -560,170 +529,183 @@ template: inverse
 - VHD
 - Qcow2 (standard Logiciel Libre)
 - VMDK (Standard, Fixed, Split2G, Stream Optimized, ESX)
+
+**Note** : Il est plus effiace d'utiliser des partitions LVM / ZFS / BTRFS
 ---
 template: inverse
 # OVF
 ---
-class: center, middle
-## Format normalisé de description d'une VM.
+# OVF
 
-### Malheureusement, il est incomplet.
+Format normalisé de description d'une VM. Chaque logiciel posséde son
+namespace (vbx, vmdk...)
+
+Malheureusement, il est incomplet.
+---
+## OVF
+
+Exemple :
+
+```xml
+?xml version="1.0"?>
+<Envelope
+    ovf:version="1.0"
+    xml:lang="en-US"
+    xmlns="http://schemas.dmtf.org/ovf/envelope/1"
+    xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:vbox="http://www.virtualbox.org/ovf/machine">
+
+  <References>
+      <File ovf:id="file1"
+            ovf:href="spv-sysdisk.vmdk"
+            ovf:size="430392832" />
+  </References>
+
+  <DiskSection>
+    <Info>List of the virtual disks used in the package</Info>
+    <Disk ovf:diskId="sysdisk"
+          ovf:fileRef="file1"
+          vbox:uuid="8583a587-88c1-45c3-9365-033899064841"
+          ovf:capacity="16106127360"
+          ovf:populatedSize="430392832"
+...
+/>
+```
 ---
 class: center, middle
-## Chaque logiciel posséde son namespace (vbx, vmdk...)
----
-class: center, middle
-## Le format OVA embarque la VM + le fichier OVF.
+## Le format OVA embarque la VM + le fichier OVF
 ---
 template: inverse
-# Outils Libres
+# Sélections d'outils Libres
 ---
-# OpenVZ
+Petites sélections personnelles :
 
-- Libvirt
-- ProxMox ME
+- Libvirt (OpenVZ, LXC, KVM, Xen, VMWare) http://libvirt.org
+- ProxMox VE (OpenVZ, KVM) https://www.proxmox.com
+- Docker (LXC) http://docker.io
+- Vagrant (VirtualBox) http://www.vagrantup.com
+- oVirt (KVM, Xen, VirtualBox) http://www.ovirt.org
+- virt-manager (KVM, Xen, LXC) http://virt-manager.org
+- Libguestfs (KVM) http://libguestfs.org
+- virt-tools (KVM) http://virt-tools.org
+- Kimchi (KVM) https://github.com/kimchi-project/kimchi
+- Ganeti (KVM, Xen) https://code.google.com/p/ganeti
+- ConVirt Open Source (KVM, Xen) http://www.convirture.com/products_opensource.php
+- xen-tools (Xen) http://www.xen-tools.org
+- Zentific (Xen) http://www.zentific.com
+- Xen Orchestra (Xen) http://xen-orchestra.com
+- Xen Server (Xen) http://www.xenserver.org
 ---
-# LXC
-
-- Libvirt
-- Docker
-- Vagrant
-
+template: inverse
+# Cloud Computing
 ---
-# KVM
-
-- Libvirt
-- oVirt
-- virt-manager
-- Libguestfs
-- virt-tools
-- Ganeti
-- ProxMox VE
-- Foreman
+## Architecture OpenStack Folsom
+![Default-aligned image](img/openstack-conceptual-arch-folsom.jpg)
 ---
-# Xen
+## Principales technologies Libres Cloud :
 
-- libvirt
-- Ganeti
----
-# VirtualBox 
+- OpenStack
 
-- Libvirt
-- Vagrant
----
-# VMWware
+  http://www.openstack.org
 
-- Libvirt
-- ?
+- Apache CloudStack
+
+  http://cloudstack.apache.org
+
+- OpenNebula
+
+  http://opennebula.org
+
+- Eucalyptus
+
+  https://www.eucalyptus.com
 ---
 template: inverse
 # Software Configuration Management (SCM)
 ---
 class: center, middle
-# Pourquoi un SCM ?
-
-## Les outils SCM sont un gros pas en avant en .blue[simplifiant] grandement le travail d'administration.
+## Les outils SCM sont un gros pas en avant en .blue[simplifiant] grandement le travail d'administration
 ---
-class: center, middle
-## Utilisez un SCM est .blue[obligatoire] pour le Cloud Computing.
----
- ## Qualité
+ ## Qualités
 
-* Configuration as Code
-* Plus proche du développement (outil, langage, etc)
-* Configuration as Documentation
-* Langage commun (DSL)
-* Flexible
-* Rapidité
-* Abstraction
-* Idempotence
+* .blue[configuration as Code]
+* documente parfaitement les changements
+* utilisation d'outils communs avec les dev (outil, langage, etc)
+* langage commun (dev / op)
+* rapidité de déploiement
+* flexible
+* .blue[idempotence]
 ---
 ## Principaux outils Libres
 
-- CFEngine
-- Puppet
-- Chef
-- SaltStack
-- Ansible
+- CFEngine (C)
+
+  http://cfengine.com
+
+- Puppet (Ruby)
+
+  http://puppetlabs.com
+
+- Chef (Ruby, Erlang)
+
+  http://www.getchef.com
+
+- SaltStack (Python)
+
+  http://www.saltstack.com
+
+- Ansible (Python)
+
+  http://www.ansible.com
 ---
 template: inverse
-# Cloud Computing
+# Démo
 ---
-## Caractéristiques (NIST)
-1. On-demand self-service
-2. Broad network access
-3. Resource pooling
-4. Rapid elasticity
-5. Measured service
----
-## Architecture OpenStack Folsom
-![Default-aligned image](img/openstack-conceptual-arch-folsom.jpg)
----
-## Technologies Cloud Libres :
-
-- OpenStack
-- CloudStack
-- OpenNebula
-- Eucalyptus
----
-## AAS (As a Service)
-
-- IaaS = infrastructure
-- PaaS = platform
-- SaaS = software
-- NaaS = network
----
-## Type de cloud
-
-- Private Cloud
-- Public Cloud
-- Hybrid Cloud
----
-template: inverse
-# Partie pratique
----
-class: middle, center
-## Virtualbox
----
-class: middle, center
-## Virtualbox + vagrant
-
-http://puppet-vagrant-boxes.puppetlabs.com/
-
-http://cloud-images.ubuntu.com/vagrant/raring/current/
----
-class: middle, center
-## LXC
----
-class: middle, center
-## LXC + libvirt
-
-http://libvirt.org
----
-class: middle, center
-## Docker
-
-http://docker.io
----
-class: middle, center
 ## KVM
----
-class: middle, center
-## KVM + libvirt
----
-class: middle, center
-## Virt-manager
 
-http://virt-manager.org/
+- KVM seul
+
+```xml
+qemu-system-x86_64 -nodefaults \
+ -drive file=debian7.qcow2,if=none,media=disk,id=hd0 \
+ -device driver=virtio-blk-pci,drive=hd0 \
+ -boot order=c \
+ -enable-kvm \
+ -vga cirrus
+```
+
+- présentation rapide de virt-manager / virsh
+
+- manipulation de VM avec libguestfs
 ---
-class: middle, center
-## libguestfs
+## VirtualBox
+
+- présentation rapide de VirtualBox IHM / CLI
+
+- démo avec une VM
+
+- format OVF / import OVF + VMDK
+
+- présentation rapide de Vagrant
+  http://docs.vagrantup.com/v2/
+
 ---
-class: middle, center
-## virt-tools
+## LXC
+
+- présentation rapide de LXC (template, commandes)
+
+- lancement conteneur Ubuntu
+
+- présentation rapie de Docker http://douche.name/presentation-docker)
 ---
-class: middle, center
-## SaltStack
+## Salt
+
+- démo shell distribué
+
+- exemple simple de template SLS
+
+- exemple de modules Salt maison
 ---
 name: last-page
 template: inverse
